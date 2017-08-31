@@ -1,0 +1,60 @@
+{
+  "name": "save-my-memories",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Save daily memories, open them 10 years later, cry",
+  "main": "index.js",
+  "repository": "git@github.com:fabienjuif/save-my-memories.git",
+  "author": "Fabien JUIF <fabien.juif@gmail.com>",
+  "license": "GPLv3",
+  "scripts": {
+    "start": "./index.js",
+    "lint:js": "eslint backend"
+  },
+  "dependencies": {
+    "@cycle/run": "^3.2.0",
+    "cycle-node-http-server": "^2.0.2",
+    "switch-path": "^1.2.0",
+    "xstream": "^10.9.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb"
+    ],
+    "plugins": [
+      "babel"
+    ],
+    "globals": {
+      "fetch": false
+    },
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "semi": [
+        2,
+        "never"
+      ],
+      "arrow-body-style": 0,
+      "import/prefer-default-export": 0,
+      "react/forbid-prop-types": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/no-unresolved": 0,
+      "import/extensions": 0,
+      "func-names": 0,
+      "jsx-a11y/no-static-element-interactions": 0,
+      "react/no-danger": 0,
+      "jsx-a11y/href-no-hash": 0
+    }
+  }
+}
