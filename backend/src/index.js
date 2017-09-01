@@ -3,6 +3,8 @@ const { run } = require('@cycle/run')
 const path = require('path')
 const config = require('../../config')
 
+const Users = require('./users')
+
 const { makeHttpServerDriver, Router } = require('cycle-node-http-server')
 const { makePouchDBDriver } = require('cycle-pouchdb-driver')
 
@@ -29,16 +31,17 @@ const main = ({ httpServer, pouchDB }) => {
     '/user/:id': id => sources => Page({ ...sources, props$: xs.of({ desc: `user/${id}` }) }),
   })
 
+  const users = Users({ httpServer, pouchDB })
 
   return {
-    httpServer: xs.merge(httpCreate$, router$.map(c => c.httpServer).flatten()),
-    pouchDB: xs.merge(
+    httpServer: xs.merge(httpCreate$, users.httpServer),
+    /* pouchDB: xs.merge(
       xs.of({ action: 'put', database: 'users', doc: { _id: 'lol2', name: 'Delphine MILLET' } }),
       xs.of({ action: 'get', database: 'users', _id: 'lol2' }),
       xs.of({ action: 'allDocs', database: 'users' }),
-    ),
-    log: pouchDB.debug('pouchDB send this'),
-    log2: pouchDB.filter(e => e.action === 'allDocs').map(e => e.data.rows).debug('pouchDB send a allDOC'),
+    ), */
+    pouchDB: xs.merge(users.pouchDB),
+    // dummy: get.dummy,
   }
 }
 
@@ -52,8 +55,7 @@ const drivers = {
   pouchDB: makePouchDBDriver({
     users: path.resolve(config.database.path, 'users'),
   }),
-  log: dummy,
-  log2: dummy,
+  dummy,
 }
 
 run(main, drivers)

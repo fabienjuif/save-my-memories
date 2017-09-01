@@ -409,6 +409,10 @@ cycle-node-http-server@^2.0.2:
   dependencies:
     xstream "^10.7.0"
 
+cycle-pouchdb-driver@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/cycle-pouchdb-driver/-/cycle-pouchdb-driver-0.0.1.tgz#18362fe312ed0a2364a063ca0046699668d90016"
+
 d@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
