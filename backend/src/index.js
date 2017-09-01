@@ -4,8 +4,7 @@ const path = require('path')
 const config = require('../../config')
 
 const { makeHttpServerDriver, Router } = require('cycle-node-http-server')
-const { makePouchDBDriver } = require('./drivers/pouchdb')
-
+const { makePouchDBDriver } = require('cycle-pouchdb-driver')
 
 process.on('unhandledRejection', r => console.log(r))
 
