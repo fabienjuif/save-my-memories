@@ -14,6 +14,7 @@
   "dependencies": {
     "@cycle/run": "^3.2.0",
     "cycle-node-http-server": "^2.0.2",
+    "pouchdb": "^6.3.4",
     "switch-path": "^1.2.0",
     "xstream": "^10.9.0"
   },
