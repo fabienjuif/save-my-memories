@@ -17,6 +17,7 @@
     "cycle-pouchdb-driver": "^0.0.1",
     "pouchdb": "^6.3.4",
     "switch-path": "^1.2.0",
+    "url-pattern": "^1.0.3",
     "xstream": "^10.9.0"
   },
   "devDependencies": {

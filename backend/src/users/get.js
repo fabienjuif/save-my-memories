@@ -1,17 +1,7 @@
+const match = require('../helpers/request/match')
+
 module.exports = ({ httpServer, pouchDB }) => {
-  const req$ = httpServer
-    .select('http')
-    .events('request')
-    // make this a lib
-    .filter(req => req.method === 'GET')
-    .filter(req => /\/users\/\w+$/.test(req.url))
-    .map(req => ({
-      ...req,
-      params: {
-        id: req.url.match(/\/users\/(\w+)$/)[1],
-      },
-    }))
-    // END make this a lib
+  const req$ = match.get('/users/:id')({ httpServer }).req$
 
   const dbRequest$ = req$
     .map(req => ({ database: 'users', action: 'get', _id: req.params.id }))
